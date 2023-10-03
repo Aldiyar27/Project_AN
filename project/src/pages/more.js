@@ -6,7 +6,7 @@ import home_img from '../img/home.png';
 import profile_img from '../img/profile.png';
 import more_img from '../img/more.png';
 
-const Profile = () => {
+const More = () => {
     return (
         <div className='html'>
         <header>
@@ -28,4 +28,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default More;

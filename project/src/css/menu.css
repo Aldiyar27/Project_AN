@@ -1,0 +1,82 @@
+@font-face {
+    font-family: 'Kanit-Medium';
+    src: local('Kanit'),
+    url('../fonts/Kanit/Kanit-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'Kanit-Light';
+    src: local('Kanit'),
+    url('../fonts/Kanit/Kanit-Light.ttf');
+}
+
+.logo img{
+    width: 70px;
+    height: 70px;
+    margin-top: 15%;
+    margin-left: 20%;
+}
+
+ul{
+    margin-top: 30%;
+}
+
+li{
+    list-style: none;
+    width: 150px;
+    border-radius: 20px;
+    margin-bottom: 35%;
+    padding: 10px;
+}
+
+li:hover{
+    background-color: rgb(239 243 244);
+}
+
+a{
+    font-family: "Kanit";
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    font-family: "Kanit-Medium";
+}
+.home{
+    display: block;
+}
+.home img{
+    height: 17%;
+    width: 17%;
+    margin-right: 15px;
+} 
+.profile{
+    display: block;
+}
+.profile img{
+    margin-right: 17px;
+    height: 17%;
+    width: 17%;
+} 
+.more{
+    display: block;
+} 
+
+.more img{
+    height: 17%;
+    width: 17%;
+    margin-right: 18px;
+} 
+
+.line1{
+    border-left: 1px solid rgb(116, 116, 116);
+    height: 100vh;
+    margin-left: 15%;
+}
+
+header{
+    display: flex; 
+    margin-left: 14%;
+}
+
+.html{
+    display: flex; 
+}
