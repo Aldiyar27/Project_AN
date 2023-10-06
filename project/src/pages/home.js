@@ -12,7 +12,6 @@ const Home = () => {
     useEffect( ()=>{
         fetch('https://newsapi.org/v2/top-headlines?' +
         'country=us&' +
-        'category=business&' +
         'apiKey=fd796114753e443ab0803915cf50e11b')
         .then((response) => response.json())
         .then((data) => {
@@ -22,6 +21,7 @@ const Home = () => {
             console.log(error.message);
         })
     }, []);
+    
     return (
         <div className='html'>
             <header>

@@ -1,12 +1,6 @@
 .line2{
     border-left: 1px solid rgb(116, 116, 116);
     height: 100vh;
-    margin-left: 2%;
-}
-
-header{
-    display: flex; 
-    margin-left: 14%;
 }
 
 .html{
@@ -15,12 +9,13 @@ header{
 
 .posts-container{
     display: flex;
-    width: 900px;
+    width: 700px;
     height: 86.2vh; /* Высота блока */
     overflow-y: scroll;
     flex-direction: row;
     flex-wrap: wrap;
     font-family: "Kanit-Light";
+    margin-right: 50px;
 }
 
 .head{
@@ -28,18 +23,16 @@ header{
     margin-bottom: 5%;
 }
 .body{
-    margin-left: 4%;
+    margin-left: 10vh;
 }
 .post-card{
-    height: 50%;
-    width:  42.7%;
+    height: 70%;
+    width: 100%;
     margin-bottom: 10%;
-    border: solid 1px rgb(116, 116, 116);
     border-radius: 10px;
-    margin-right: 2%;
     padding-left: 4%;
     padding-right: 1%;
-    padding-bottom: 2%;
+    border: solid 1px rgb(116, 116, 116);
 }
 
 .post-card img{
@@ -53,6 +46,7 @@ header{
 .post-title{
     font-size: 110%;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .post-button{
@@ -62,4 +56,9 @@ header{
     font-size: 100%;
     font-family: "Kanit-Light";
     padding: 1.2%;
+}
+
+.post-button:hover{
+    background-color: rgb(23, 201, 255);
+    border: solid 1px rgb(116, 116, 116);
 }
