@@ -15,7 +15,7 @@ const Profile = () => {
     // });
 
     function Profile(){
-        const users= localStorage.getItem("users")
+        const users= localStorage.getItem("login_users")
         if(users == null){
             window.location.href = "/registration"
         }
