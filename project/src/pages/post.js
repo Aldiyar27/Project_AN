@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import '../css/menu.css';
 import logo from '../img/logo.png';
 import '../fonts/Kanit/Kanit-Medium.ttf'

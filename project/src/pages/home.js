@@ -48,7 +48,11 @@ const Home = () => {
                             <img src={post.urlToImage} alt="" className='post-img'/>
                             <p className='post-title'>{post.title}</p>
                             <p className='post-author'><b>Author: </b>{post.author}</p>
-                            <a href='/post' className='post-button'>Read more</a>
+                            <p className='post-time'>{post.publishedAt}</p>
+                            <details>
+                                <summary className='post-button'>Read more</summary>
+                                <div class="content_wrapper">{post.content}</div>
+                            </details>
                         </div>
                         );
                     })}
