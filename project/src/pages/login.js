@@ -53,7 +53,7 @@ const Login = () => {
         <h1 className='head'>Registration</h1>
             <div class="login-page">
                 <div class="form-regis">
-                    <h4>SignUp</h4>
+                    <h4>Login</h4>
                     <input type="text" placeholder="email" class="text-input" id="emailInput"/>
                     <input type="password" placeholder="Password" class="text-input" id="passwordInput"/>
                     <button class="btnRegister" onClick={handleClick}>Login</button>
