@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import '../css/menu.css';
+import '../css/profile.css';
 import logo from '../img/logo.png';
 import '../fonts/Kanit/Kanit-Medium.ttf'
 import home_img from '../img/home.png';
@@ -20,6 +21,15 @@ const Profile = () => {
             window.location.href = "/registration"
         }
     }
+    function getUser(){
+        return JSON.parse(localStorage.getItem("login_users"));
+    }
+
+    const Exit = () => {
+        localStorage.removeItem('login_users')
+        window.location.href = "/registration"
+    }
+
     return (
         <div className='html'>
         <header>
@@ -38,8 +48,15 @@ const Profile = () => {
             <div className="line1"></div>
         </header>
         <div className='body'>
-
+            <h1 className='head'>Profile</h1>
+            <div className='profile-page'>
+                <div className='photo'></div>
+                <p className='name'>{getUser().name}</p>
+                <p className='nickname'>@{getUser().nickname}</p>
+                <a href={'/registration'} className='exit' onClick={Exit}>Exit</a>
+            </div>
         </div>
+        <div className="line2"></div>
         </div>
     );
 };

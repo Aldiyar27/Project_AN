@@ -21,10 +21,11 @@ const Regis = () => {
         const newUsers = {name, nickname, email, password}
         
         users.push(newUsers)
-    
+        
         localStorage.setItem('signup_users', JSON.stringify(users))
-        localStorage.clear('login_users')
-        localStorage.setItem('login_users', JSON.stringify(users))
+        localStorage.removeItem('login_users')
+        localStorage.setItem('login_users', JSON.stringify(newUsers))
+
     
         alert("Регистрация успешно!")
         window.location.href = "/profile"
@@ -35,7 +36,7 @@ const Regis = () => {
         const nickname = document.getElementById('nicknameInput').value
         const email = document.getElementById('emailInput').value
         const password = document.getElementById('passwordInput').value
-        if(email != '' && password != '' && name != '' && nickname != ''){
+        if(email !== '' && password !== '' && name !== '' && nickname !== ''){
             if(/@/.test(email)){
                 if(password.length < 8 || password.length > 20){
                     alert('Некорректный пароль')
@@ -80,7 +81,7 @@ const Regis = () => {
                     <input type="text" placeholder="email" class="text-input" id="emailInput"/>
                     <input type="password" placeholder="Password" class="text-input" id="passwordInput"/>
                     <button class="btnRegister" onClick={handleClick}>SignUp</button>
-                    <a class="sign" href="/profile"> loign... </a>
+                    <a class="login" href="/login"> loign... </a>
                 </div>
             </div>
         </div>
