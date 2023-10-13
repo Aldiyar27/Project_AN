@@ -22,7 +22,11 @@ const Profile = () => {
         }
     }
     function getUser(){
-        return JSON.parse(localStorage.getItem("login_users"));
+        const sign_users= JSON.parse(localStorage.getItem("signup_users")) || []
+        const login_users= JSON.parse(localStorage.getItem("login_users")) || []
+
+        const existingUser = sign_users.find(user => user.email === login_users.email)
+        return existingUser;
     }
 
     const Exit = () => {
@@ -52,7 +56,7 @@ const Profile = () => {
             <div className='profile-page'>
                 <div className='photo'></div>
                 <p className='name'>{getUser().name}</p>
-                <p className='nickname'>@{getUser().nickname}</p>
+                <p className='nickname'>@{getUser().nickname}</p> 
                 <a href={'/registration'} className='exit' onClick={Exit}>Exit</a>
             </div>
         </div>
