@@ -34,6 +34,21 @@ const Profile = () => {
         window.location.href = "/registration"
     }
 
+    function Post(){
+        const posts = JSON.parse(localStorage.getItem("posts")) || []
+        const text = document.getElementById('textInput').value
+        const title = document.getElementById('titleInput').value
+        const name = getUser().nickname;
+        const date = new Date().toLocaleString();
+        const newPost = {name, text, date, title}
+
+        posts.push(newPost)
+        
+        localStorage.setItem('posts', JSON.stringify(posts))
+        alert("Post loaded!")
+        document.getElementById('textInput').value = "";
+    }
+
     return (
         <div className='html'>
         <header>
@@ -54,12 +69,23 @@ const Profile = () => {
         <div className='body'>
             <h1 className='head'>Profile</h1>
             <div className='profile-page'>
+                <div className='block'></div>
                 <div className='photo'></div>
                 <p className='name'>{getUser().name}</p>
                 <p className='nickname'>@{getUser().nickname}</p> 
-                <a href={'/registration'} className='exit' onClick={Exit}>Exit</a>
             </div>
+
+            <div className='new-post-container'>
+            <p>Write your news...</p>
+            <div className='text-box'>
+                <textarea placeholder="Title" className='title' id='titleInput'></textarea>
+                <textarea  placeholder="Text" className='text' id='textInput'></textarea>
+            </div>
+            <button className='post' onClick={Post}>Post</button>
         </div>
+        <a href={'/registration'} className='exit' onClick={Exit}>Exit</a>
+        </div>
+
         <div className="line2"></div>
         </div>
     );

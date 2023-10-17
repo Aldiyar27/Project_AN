@@ -25,18 +25,25 @@
 .body{
     margin-left: 5vw;
 }
-
+.new-time{
+    font-size: 0.8vw;
+    margin-left: 1.5vw;
+    margin-bottom: 1.5vw;
+    position: relative;
+    bottom: 0.8vh;
+}
 .post-time{
-    font-size: 0.9vw;
+    font-size: 0.8vw;
     margin-left: 1.5vw;
     margin-bottom: 1.5vw;
 }
 .post-card{
-    height: 82vh;
     width: 44vw;
     margin-bottom: 7vw;
     border-radius: 10px;
     border: solid 1px rgb(116, 116, 116);
+    max-height: 4000vh;
+    padding-bottom: 3vw;
 }
 
 .post-card img{
@@ -49,7 +56,16 @@
     font-size: 1.7vw;
     font-weight: bold;
     margin: auto;
-    margin-left: 1.5vw
+    margin-left: 1.5vw;
+}
+
+.new-title{
+    font-size: 1.7vw;
+    font-weight: bold;
+    margin: auto;
+    margin-left: 1.5vw;
+    position: relative;
+    bottom: 4vh;
 }
 .post-author{
     font-family: 'Kanit-Light';
@@ -75,16 +91,79 @@
     background-color: rgb(23, 201, 255);
     border: solid 1px rgb(116, 116, 116);
 }
-.content_wrapper{
-    height: 12vh;
-    font-size: 1.1vw;
-    background-color: white;
-    padding-left: 1vw;
-    margin-top: 0.8vw;
-    padding-right: 1vw;
-    border-radius: 0px 0px 10px 10px;
-    border-left: solid 1px rgb(116, 116, 116);
-    border-right: solid 1px rgb(116, 116, 116);
-    border-bottom: solid 1px rgb(116, 116, 116);
+.news-text{
+    font-size: 1.5vw;
+    margin-left: 1.5vw;
+    position: relative;
+    bottom: 3vh;
 }
 
+.post-text{
+    font-size: 1.2vw;
+    margin-left: 1.5vw;
+}
+
+.post-news{
+    width: 44vw;
+    margin-bottom: 3vw;
+    border-radius: 10px;
+    border: solid 1px rgb(116, 116, 116);
+    max-height: 400vh;
+    overflow: hidden;
+    padding-bottom: 3vw;
+}
+
+.comment{
+    width: 33vw;
+    height: 3vh;
+    border: solid 1px rgb(116, 116, 116);
+    border-radius: 3px;
+    resize: none;
+    font-size: 1.4vw;
+    margin-left: 1vw;
+}
+
+.comment-box p{
+    font-size: 1.5vw;
+    margin-left: 1.5vw;
+    margin-bottom: 0.1vw;
+}
+
+.send{
+    width: 5vw;
+    height: 4vh;
+    font-size: 1.3vw;
+    margin-left: 1vw;
+}
+
+.com{
+    display: flex;
+}
+
+.comment-text{
+    font-size: 1.2vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+.comment-author{
+    font-weight: bold;
+    font-size: 1.2vw;
+    margin-left: 1vw;
+}
+
+.comment-date{
+    font-size: 0.8vw;
+    margin-left: 1.2vw;
+}
+
+.commen{
+    border: solid 1px rgb(116, 116, 116);
+    width: 33.8vw;
+    max-height: 17vh;
+    overflow: hidden;
+    margin-left: 1vw;
+    margin-top: 1.5vh;
+    border-radius: 10px; 
+    padding-bottom: 2vh;
+}

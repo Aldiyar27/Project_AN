@@ -54,7 +54,7 @@ const Login = () => {
             <div class="login-page">
                 <div class="form-regis">
                     <h4>Login</h4>
-                    <input type="text" placeholder="email" class="text-input" id="emailInput"/>
+                    <input type="email" placeholder="email" class="text-input" id="emailInput"/>
                     <input type="password" placeholder="Password" class="text-input" id="passwordInput"/>
                     <button class="btnRegister" onClick={handleClick}>Login</button>
                 </div>

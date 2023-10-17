@@ -78,7 +78,7 @@ const Regis = () => {
                     <h4>SignUp</h4>
                     <input type="text" placeholder="Name" class="text-input" id="nameInput"/>
                     <input type="text" placeholder="Nickname" class="text-input" id="nicknameInput"/>
-                    <input type="text" placeholder="email" class="text-input" id="emailInput"/>
+                    <input type="email" placeholder="email" class="text-input" id="emailInput"/>
                     <input type="password" placeholder="Password" class="text-input" id="passwordInput"/>
                     <button class="btnRegister" onClick={handleClick}>SignUp</button>
                     <a class="login" href="/login"> loign... </a>

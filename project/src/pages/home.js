@@ -21,7 +21,62 @@ const Home = () => {
             console.log(error.message);
         })
     }, []);
-    
+
+    const [news, setNews] = useState([]);
+  
+    useEffect(() => {
+      const storedPosts = localStorage.getItem('posts');
+      
+      if (storedPosts) {
+        const parsedPosts = JSON.parse(storedPosts);
+        setNews(parsedPosts);
+      }
+    }, []);
+
+    const [postComments, setPostComments] = useState({});
+
+    useEffect(() => {
+      const storedComments = localStorage.getItem('comments');
+      if (storedComments) {
+        const parsedComments = JSON.parse(storedComments);
+        setPostComments(parsedComments);
+      }
+    }, []);
+
+    function getUser(){
+        const sign_users= JSON.parse(localStorage.getItem("signup_users")) || []
+        const login_users= JSON.parse(localStorage.getItem("login_users")) || []
+
+        const existingUser = sign_users.find(user => user.email === login_users.email)
+        return existingUser;
+    }
+
+    const [comments, setComments] = useState([]);
+
+    const isUserLoggedIn = () => {
+      const loggedInUser = JSON.parse(localStorage.getItem("login_users"));
+      return loggedInUser !== null;
+  }
+
+    const addComment = (index, comment) => {
+      if (!isUserLoggedIn()) {
+        alert("Пожалуйста, войдите в свой аккаунт, чтобы оставлять комментарии.");
+        return;
+        }
+        const nickname = getUser().nickname;
+        const newComment = {
+            index: index,
+            text: comment,
+            author: nickname,
+            date: new Date().toLocaleString(),
+        };
+        const updatedComments = [...comments, newComment];
+        setComments(updatedComments);
+        setPostComments({ ...postComments, [index]: '' });
+
+        localStorage.setItem('comments', JSON.stringify(updatedComments));
+    };
+
     return (
         <div className='html'>
             <header>
@@ -42,17 +97,97 @@ const Home = () => {
             <div className='body'> 
                 <h1 className='head'>Home</h1>
                 <div className='posts-container'>
+                <div>
+                {news.length > 0 ? (
+                    news.map((post, index) => (
+                    <div className='post-news' key={index}>
+                      <div className='post-author' dangerouslySetInnerHTML={{ __html: "<b>Author: </b> @" + post.name}} />
+                       <div className='new-time' dangerouslySetInnerHTML={{__html: post.date}} />
+                       <div className='new-title' dangerouslySetInnerHTML={{__html: post.title}} />
+                       <div className='news-text' dangerouslySetInnerHTML={{__html: post.text}} />
+                        <div className='comment-box'>
+                                <p>Comments:</p>
+                                <div className='com'>
+                                  <textarea
+                                    className='comment' id='commentInput'
+                                    value={postComments[index] || ''}
+                                    onChange={(e) => {
+                                      const newComment = e.target.value;
+                                      setPostComments((prevComments) => ({
+                                        ...prevComments,
+                                        [index]: newComment,
+                                      }));
+                                    }}
+                                  ></textarea>
+                                  <button
+                                    className='send'
+                                    onClick={() => {
+                                      const comment = postComments[index];
+                                      if (comment) {
+                                        addComment(index, comment);
+                                      }
+                                    }}
+                                  >
+                                    Send
+                                  </button>
+                                </div>
+                            </div>
+                            {comments.filter(comment => comment.index === index)
+                            .map((comment, commentIndex) => (
+                            <div className="commen" key={commentIndex}>
+                              <div className='comment-author' dangerouslySetInnerHTML={{__html: "@" + comment.author}} />
+                              <div className='comment-date' dangerouslySetInnerHTML={{__html: comment.date}} />
+                              <div className='comment-text' dangerouslySetInnerHTML={{__html: comment.text}} />
+                            </div>
+                            ))}
+                    </div>
+                    ))
+                ) : ("")}
+                </div>
                     {posts.map((post, index) => {
                         return(
                         <div className='post-card' key={index}>
                             <img src={post.urlToImage} alt="" className='post-img'/>
-                            <p className='post-title'>{post.title}</p>
-                            <p className='post-author'><b>Author: </b>{post.author}</p>
-                            <p className='post-time'>{post.publishedAt}</p>
-                            <details>
-                                <summary className='post-button'>Read more</summary>
-                                <div class="content_wrapper">{post.content}</div>
-                            </details>
+                            <div className='post-title' dangerouslySetInnerHTML={{__html: post.title}} />
+                            <div className='post-time' dangerouslySetInnerHTML={{__html: post.publishedAt}} />
+                            <div className='post-author' dangerouslySetInnerHTML={{__html: "<b>Author: </b>" + post.author}} />
+                            <div className='post-time' dangerouslySetInnerHTML={{__html: post.publishedAt}} />
+                            <div className='post-text' dangerouslySetInnerHTML={{__html: post.content}} />
+                            <div className='comment-box'>
+                                <p>Comments:</p>
+                                <div className='com'>
+                                  <textarea
+                                    className='comment' id='commentInput'
+                                    value={postComments[index] || ''}
+                                    onChange={(e) => {
+                                      const newComment = e.target.value;
+                                      setPostComments((prevComments) => ({
+                                        ...prevComments,
+                                        [index]: newComment,
+                                      }));
+                                    }}
+                                  ></textarea>
+                                  <button
+                                    className='send'
+                                    onClick={() => {
+                                      const comment = postComments[index];
+                                      if (comment) {
+                                        addComment(index, comment);
+                                      }
+                                    }}
+                                  >
+                                    Send
+                                  </button>
+                                </div>
+                            </div>
+                            {comments.filter(comment => comment.index === index)
+                            .map((comment, commentIndex) => (
+                            <div className="commen" key={commentIndex}>
+                              <div className='comment-author' dangerouslySetInnerHTML={{__html: "@" + comment.author}} />
+                              <div className='comment-date' dangerouslySetInnerHTML={{__html: comment.date}} />
+                              <div className='comment-text' dangerouslySetInnerHTML={{__html: comment.text}} />
+                            </div>
+                            ))}
                         </div>
                         );
                     })}
